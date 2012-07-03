@@ -1,30 +1,13 @@
-var BurstTrie = require("./BurstTrie.js");
+var BurstTrie = require("./trie/BurstTrie.js");
+var BurstTrieWriter = require("./trie/BurstTrieWriter.js");
+var AccessTrieNodeFactory = require("./trie/AccessTrieNodeFactory.js");
 
-var myTrie = new BurstTrie();
-
-myTrie.add('CAR');
-myTrie.add('CART');
-myTrie.add('CARE');
-myTrie.add('CARTS');
-console.log(myTrie.toString());
-
-// doGets(myTrie);
-// testTrie(myTrie);
-
-function doGets(trie)
+module.exports.createTrie = function()
 {
-	for (var i=0; i < 60; i++)
-	{
-		trie.get('CARE');
-	}
-}
+    return new BurstTrie(new AccessTrieNodeFactory());
+};
 
-function testTrie(trie)
+module.exports.createTrieWriter = function()
 {
-	console.log(trie.contains('C'));
-	console.log(trie.contains('CAR'));
-	console.log(trie.contains('CARE'));
-	console.log(trie.contains('CART'));
-	console.log(trie.contains('CARTS'));
-	console.log(trie.contains('CARTIS'));
-}
+	return new BurstTrieWriter();
+};

@@ -1,0 +1,10 @@
+{
+  "name": "burst-trie",
+  "description": "burst trie impl in js",
+  "version": "0.1.0",
+  "author": "Ariel Jakobovits",
+  "dependencies": {
+    "underscore.string": "~2.2.0rc"
+  },
+  "devDependencies": {}
+}
