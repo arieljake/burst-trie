@@ -3,6 +3,15 @@
 
 For more information on Burst Tries: [See the Wiki](https://github.com/arieljake/burst-trie/wiki)
 
+###Bottom Line
+
+The burst trie has significant advantages over other data structures storing large sets of string keys:
+
+* requires no more memory than a binary tree
+* as fast as a trie; and, while not as fast as a hash table, a burst trie maintains the strings in sorted or near-sorted order
+* compared to a splay tree, the fastest variant of a burst trie can accumulate the vocabulary of a 10 Gb collection of web data in less than 40% of the time, while using no more memory
+* compared to a ternary search tree, the burst trie is around 25% faster and uses only 50% of the memory and far outperforms the adaptivity of a splay tree to store frequently-accessed records
+
 ###Packages
 
 Package | Description
