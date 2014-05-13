@@ -19,6 +19,7 @@ Package | Description
 bst | Binary Search Tree
 burst | Burst Strategies
 trie | Burst Trie Implementation
+writer | Writers for Burst Trie and various node types
 
 
 ###Basic Usage
