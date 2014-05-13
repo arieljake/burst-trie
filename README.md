@@ -38,5 +38,5 @@ myTrie.get('CARE');
 ```
 var BurstTrieWriter = require("../trie/BurstTrieWriter.js");
 
-BurstTrieWriter.writeTrie(myTrie)
+BurstTrieWriter.write(myTrie)
 ```
