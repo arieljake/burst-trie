@@ -1,17 +1,15 @@
 var AccessTrieNode = require("./AccessTrieNode.js");
 var AccessTrieNodeStorage = require("./AccessTrieNodeStorage.js");
-var BurstStrategyFactory = require("../burst/BurstStrategyFactory.js");
 var ContainerNodeFactory = require("./ContainerNodeFactory.js");
 
-var AccessTrieNodeFactory = module.exports = function()
+var AccessTrieNodeFactory = module.exports = function(containerNodeFactory)
 {
-	this.burstStrategyFactory = new BurstStrategyFactory(this);
-	this.containerNodeFactory = new ContainerNodeFactory(this.burstStrategyFactory);
+    this.containerNodeFactory = containerNodeFactory;
 };
 
 AccessTrieNodeFactory.prototype.createNode = function()
 {
     return new AccessTrieNode(
-		new AccessTrieNodeStorage(this.containerNodeFactory)
-	);
+        new AccessTrieNodeStorage(this.containerNodeFactory)
+    );
 }

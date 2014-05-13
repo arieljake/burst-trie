@@ -1,4 +1,5 @@
 var BST = require("../bst/BST.js");
+var AccessTrieNode = require("./AccessTrieNode.js");
 
 /**
  * With BSTs, the position of a record in the tree depends not on its frequency, but on the insertion order.
@@ -8,13 +9,13 @@ var BST = require("../bst/BST.js");
  * so means that the most frequent terms are likely to be the root nodes in their containers.
  * As for linked lists, this requires that each record stores a frequency count.
  */
-var ContainerNode = module.exports = function (parent,prefix,burstStrategy)
+var ContainerNode = module.exports = function(parent, prefix, burstStrategy)
 {
-	this.parent = parent;
-	this.prefix = prefix;
-	this.burstStrategy = burstStrategy;
-	this.burstStrategy.setContainer(this);
-	this.bst = undefined;
+    this.parent = parent;
+    this.prefix = prefix;
+    this.burstStrategy = burstStrategy;
+    this.burstStrategy.setContainer(this);
+    this.bst = undefined;
 };
 
 ContainerNode.prototype.getType = function()
@@ -24,37 +25,48 @@ ContainerNode.prototype.getType = function()
 
 ContainerNode.prototype.add = function(key)
 {
-	if (!this.bst)
-	{
-		this.bst = new BST();
-	}
+    if (!this.bst)
+    {
+        this.bst = new BST();
+    }
 
-	var node = this.bst.add(key);
+    var node = this.bst.add(key);
 
-	this.burstStrategy.onAdd(this,node);
+    this.burstStrategy.onAdd(this, node);
 };
 
 ContainerNode.prototype.contains = function(key)
 {
-	if (!this.bst)
-		return false;
+    if (!this.bst)
+        return false;
 
     return this.bst.contains(key);
 };
 
 ContainerNode.prototype.get = function(key)
 {
-	if (!this.bst)
-		return null;
+    if (!this.bst)
+        return null;
 
-	var result = this.bst.get(key);
+    var result = this.bst.get(key);
 
-	this.burstStrategy.onGet(this,result);
+    this.burstStrategy.onGet(this, result);
 
-	return result;
+    return result;
 };
 
 ContainerNode.prototype.burst = function()
 {
-	this.burstStrategy.burstContainer(this);
+    if (this.bst)
+    {
+        var atn = this.accessTrieNodeFactory.createNode();
+
+        BSTTraverser.traverse(container.bst, function(node)
+        {
+            atn.add(node.value);
+        });
+
+        delete container.bst;
+        container.parent.set(container.prefix, atn);
+    }
 };

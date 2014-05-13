@@ -18,16 +18,16 @@ LimitBurstStrategy.prototype = new BaseBurstStrategy();
 
 LimitBurstStrategy.prototype.shouldBurst = function()
 {
-	return this.nodeCounter >= this.threshold;
+    return this.nodeCounter >= this.threshold;
 };
 
-LimitBurstStrategy.prototype.onAdd = function(container,node)
+LimitBurstStrategy.prototype.onAdd = function(container, node)
 {
-	this.nodeCounter++;
-	this.considerBurst();
+    this.nodeCounter++;
+    this.considerBurst();
 };
 
 LimitBurstStrategy.prototype.toString = function()
 {
-	return "[LimitBurstStrategy ( threshold: " + this.threshold + " nodes: " + this.nodeCounter + " burst? " + this.shouldBurst() + "]";
+    return "[LimitBurstStrategy ( threshold: " + this.threshold + " nodes: " + this.nodeCounter + " burst? " + this.shouldBurst() + "]";
 }

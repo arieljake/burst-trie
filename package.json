@@ -1,31 +1,40 @@
 {
-	"name": "burst-trie",
-	"description": "burst trie impl in js",
-	"version": "0.1.0",
-	"author": "Ariel Jakobovits <arieljake@yahoo.com>",
-	"contributors": [
-		{
-			"name":"Ariel Jakobovits",
-			"email":"arieljake@yahoo.com"
-		}
-	],
-	"keywords": [
-		"burst",
-		"trie",
-		"tree",
-		"bst",
-		"binary search tree"
-	],
-	"engines": {
-		"node": ">= 0.6"
-	},
-	"dependencies": {
-		"underscore.string": "~2.2.0rc"
-	},
-	"devDependencies": {},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/arieljake/burst-trie.git"
-	},
-	"license": "MIT"
+    "name": "burst-trie",
+    "description": "burst trie impl in js",
+    "version": "0.1.0",
+    "author": "Ariel Jakobovits <arieljake@yahoo.com>",
+    "contributors": [
+    {
+        "name": "Ariel Jakobovits",
+        "email": "arieljake@yahoo.com"
+    }],
+    "keywords": [
+        "burst",
+        "trie",
+        "tree",
+        "bst",
+        "binary search tree"
+    ],
+    "engines":
+    {
+        "node": ">= 0.6"
+    },
+    "dependencies":
+    {
+        "underscore.string": "~2.2.0rc"
+    },
+    "devDependencies":
+    {
+        "chai": "^1.9.1"
+    },
+    "scripts":
+    {
+        "test": "mocha -R spec $(find test | grep .js)"
+    },
+    "repository":
+    {
+        "type": "git",
+        "url": "git://github.com/arieljake/burst-trie.git"
+    },
+    "license": "MIT"
 }

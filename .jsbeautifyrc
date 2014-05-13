@@ -1,0 +1,4 @@
+{
+    "break_chained_methods": false,
+    "brace_style": "expand"
+}

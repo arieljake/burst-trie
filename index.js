@@ -1,13 +1,16 @@
 var BurstTrie = require("./trie/BurstTrie.js");
-var BurstTrieWriter = require("./trie/BurstTrieWriter.js");
+var BurstStrategyFactory = require("./burst/BurstStrategyFactory.js");
 var AccessTrieNodeFactory = require("./trie/AccessTrieNodeFactory.js");
+var ContainerNodeFactory = require("./trie/ContainerNodeFactory.js");
 
-module.exports.createTrie = function()
+module.exports.createTrie = function(options)
 {
-    return new BurstTrie(new AccessTrieNodeFactory());
-};
+    options = options || new Object();
 
-module.exports.createTrieWriter = function()
-{
-	return new BurstTrieWriter();
+    var burstStrategyName = options.burstStrategy || "limit";
+    var burstStrategyConstructor = BurstStrategyFactory.createStrategyConstructor(burstStrategyName, options.strategyOptions);
+    var containerNodeFactory = new ContainerNodeFactory(burstStrategyConstructor);
+    var accessTrieNodeFactory = new AccessTrieNodeFactory(containerNodeFactory);
+
+    return new BurstTrie(accessTrieNodeFactory);
 };

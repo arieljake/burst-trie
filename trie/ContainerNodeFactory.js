@@ -1,15 +1,14 @@
 var ContainerNode = require("./ContainerNode.js");
 var EmptyStringContainer = require("./EmptyStringContainer.js");
-var BurstStrategies = require("../burst/BurstStrategies.js");
 
-var ContainerNodeFactory = module.exports = function(burstStrategyFactory)
+var ContainerNodeFactory = module.exports = function(burstStrategyConstructor)
 {
-	this.burstStrategyFactory = burstStrategyFactory;
+    this.burstStrategyConstructor = burstStrategyConstructor;
 };
 
-ContainerNodeFactory.prototype.createNode = function(parent,key)
+ContainerNodeFactory.prototype.createNode = function(parent, key)
 {
-    return new ContainerNode(parent,key,this.burstStrategyFactory.createInstance());
+    return new ContainerNode(parent, key, this.burstStrategyConstructor());
 };
 
 ContainerNodeFactory.prototype.createNodeForEmptyString = function()
