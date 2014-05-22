@@ -1,4 +1,4 @@
-Travis CI: [![Build Status](https://travis-ci.org/arieljake/burst-trie)](https://travis-ci.org/arieljake/burst-trie)
+Travis CI: [![Build Status](https://travis-ci.org/arieljake/burst-trie.svg?branch=master)](https://travis-ci.org/arieljake/burst-trie)
 
 
 **Inspired by: Burst Tries: A Fast, Efficient Data Structure for String Keys**
