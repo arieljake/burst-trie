@@ -2,11 +2,11 @@ var RatioStrategy = require("./RatioBurstStrategy.js");
 var LimitStrategy = require("./LimitBurstStrategy.js");
 var TrendStrategy = require("./TrendBurstStrategy.js");
 
-module.exports.createStrategyConstructor = function(name, options)
+module.exports.createStrategyConstructor = function(type, options)
 {
     options = options || new Object();
 
-    switch (name)
+    switch (type)
     {
 
         case "limit":
