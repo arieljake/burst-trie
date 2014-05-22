@@ -1,3 +1,6 @@
+Travis CI: [![Build Status](https://travis-ci.org/arieljake/burst-trie)](https://travis-ci.org/arieljake/burst-trie)
+
+
 **Inspired by: Burst Tries: A Fast, Efficient Data Structure for String Keys**
 [http://ww2.cs.mu.oz.au/~jz/fulltext/acmtois02.pdf](http://ww2.cs.mu.oz.au/~jz/fulltext/acmtois02.pdf)
 
