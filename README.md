@@ -6,7 +6,7 @@
 
 For more information on Burst Tries: [See the Wiki](https://github.com/arieljake/burst-trie/wiki)
 
-###Bottom Line
+### Bottom Line
 
 The burst trie has significant advantages over other data structures storing large sets of string keys:
 
@@ -15,7 +15,7 @@ The burst trie has significant advantages over other data structures storing lar
 * compared to a splay tree, the fastest variant of a burst trie can accumulate the vocabulary of a 10 Gb collection of web data in less than 40% of the time, while using no more memory
 * compared to a ternary search tree, the burst trie is around 25% faster and uses only 50% of the memory and far outperforms the adaptivity of a splay tree to store frequently-accessed records
 
-###Packages
+### Packages
 
 Package | Description
 ------- | ----------- 
@@ -24,9 +24,8 @@ burst | Burst Strategies
 trie | Burst Trie Implementation
 writer | Writers for Burst Trie and various node types
 
-
-###Basic Usage
-```
+### Basic Usage
+```js
 var BurstTrie = require("../index.js");
 var myTrie = BurstTrie.createTrie();
 
@@ -37,8 +36,8 @@ myTrie.add('CARTS');
 myTrie.get('CARE');
 ```
 
-###Print Trie
-```
+### Print Trie
+```js
 var BurstTrieWriter = require("../trie/BurstTrieWriter.js");
 
 BurstTrieWriter.write(myTrie)
